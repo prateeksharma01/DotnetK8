@@ -1,0 +1,9 @@
+pipeline {
+	stages{
+		stages()
+		{
+			bat "dotnet restore HelloWorldAspNetCore/HelloWorldAspNetCore.csproj"
+            bat "dotnet build"
+		}
+	}
+}
