@@ -6,14 +6,15 @@ pipeline {
 			steps {
 				bat "dotnet restore HelloWorldAspNetCore/HelloWorldAspNetCore.csproj"
 				bat "dotnet build HelloWorldAspNetCore/HelloWorldAspNetCore.csproj"
-				bat "docker build -t gcr.io/${GOOGLE_CLOUD_PROJECT}/hello-dotnet:v1 ."
-				bat "docker push gcr.io/${GOOGLE_CLOUD_PROJECT}/hello-dotnet:v1"
+				
 			}
 		}
 		stage('Run gcloud') {
 			steps {
 				withEnv(['GCLOUD_PATH=C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\bin']) {
-					sh '$GCLOUD_PATH\\ gcloud --version'
+					bat '$GCLOUD_PATH\\ gcloud --version'
+					bat "docker build -t gcr.io/${GOOGLE_CLOUD_PROJECT}/hello-dotnet:v1 ."
+					bat "docker push gcr.io/${GOOGLE_CLOUD_PROJECT}/hello-dotnet:v1"
 				}
 			 }
 		  }
