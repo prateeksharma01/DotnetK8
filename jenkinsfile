@@ -10,5 +10,12 @@ pipeline {
 				bat "docker push gcr.io/${GOOGLE_CLOUD_PROJECT}/hello-dotnet:v1"
 			}
 		}
+		stage('Run gcloud') {
+			steps {
+				withEnv(['GCLOUD_PATH=C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\bin']) {
+					sh '$GCLOUD_PATH\\ gcloud --version'
+				}
+			 }
+		  }
 	}
 }
