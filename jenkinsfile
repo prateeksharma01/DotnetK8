@@ -5,7 +5,7 @@ pipeline {
 		{
 			steps {
 				bat "dotnet restore HelloWorldAspNetCore/HelloWorldAspNetCore.csproj"
-				bat "dotnet build"
+				bat "dotnet build HelloWorldAspNetCore/HelloWorldAspNetCore.csproj"
 			}
 		}
 	}
