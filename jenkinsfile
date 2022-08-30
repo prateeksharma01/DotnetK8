@@ -1,6 +1,7 @@
 pipeline {
+	agent any
 	stages{
-		stages()
+		stages('build')
 		{
 			bat "dotnet restore HelloWorldAspNetCore/HelloWorldAspNetCore.csproj"
             bat "dotnet build"
