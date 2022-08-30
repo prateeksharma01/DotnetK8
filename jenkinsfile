@@ -16,7 +16,7 @@ pipeline {
 		}
 		stage('Run gcloud') {
 			steps {
-					bat 'cd 'C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\bin''
+					bat 'cd "C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\bin"'
 					bat 'gcloud --version'
 					bat "gcloud docker build -t gcr.io/${GOOGLE_CLOUD_PROJECT}/hello-dotnet:v1 ."
 					bat "docker push gcr.io/${GOOGLE_CLOUD_PROJECT}/hello-dotnet:v1"
